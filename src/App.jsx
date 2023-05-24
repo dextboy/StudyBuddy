@@ -8,6 +8,8 @@ import PasswordReset from "./pages/PasswordReset";
 import Register from "./pages/Register";
 import UpdatePassword from "./pages/UpdatePassword";
 import About from "./pages/About";
+import Notes from "./pages/Notes";
+import PracticePapers from "./pages/PracticePapers";
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/notes" element={<Notes />} />
+              <Route path="/practice-papers" element={<PracticePapers />} />
             </Route>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
