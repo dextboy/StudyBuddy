@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { Route, Routes } from "react-router-dom";
 import AuthRoute from "./components/AuthRoute";
@@ -8,14 +9,19 @@ import PasswordReset from "./pages/PasswordReset";
 import Register from "./pages/Register";
 import UpdatePassword from "./pages/UpdatePassword";
 import About from "./pages/About";
+import ReactGA from "react-ga4";
 
 const App = () => {
+  useEffect(() => {
+    ReactGA.initialize("G-E6QXS9JZLC");
+  }, []);
   return (
     <>
       <NavBar />
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}
+        id="main-container"
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Routes>
