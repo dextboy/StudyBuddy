@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Papers() {
   const questions = [
@@ -139,31 +140,43 @@ export default function Papers() {
     }
   };
   return (
-    <div className="body">
+    <div className="container">
       {showScore ? (
-        <div className="score-section">
-          You scored {score} out of {questions.length}
+        <div className="score-section text-center">
+          <h2>You scored</h2>
+          <h1 className="display-4">
+            {score} out of {questions.length}
+          </h1>
         </div>
       ) : (
-        <>
+        <div className="container text-center">
           <div className="question-section">
             <div className="question-count">
-              <span>Question {currentQuestion + 1}</span>/{questions.length}
+              <span className="badge bg-primary">
+                Question {currentQuestion + 1}/{questions.length}
+              </span>
             </div>
-            <div className="question-text">
+            <div className="question-text my-4">
               {questions[currentQuestion].questionText}
             </div>
           </div>
           <div className="answer-section">
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <button
-                onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
-              >
-                {answerOption.answerText}
-              </button>
-            ))}
+            {questions[currentQuestion].answerOptions.map(
+              (answerOption, index) => (
+                <button
+                  key={index}
+                  className="btn btn-primary btn-lg btn-block my-2"
+                  style={{ fontSize: "1rem" }}
+                  onClick={() =>
+                    handleAnswerOptionClick(answerOption.isCorrect)
+                  }
+                >
+                  {answerOption.answerText}
+                </button>
+              )
+            )}
           </div>
-        </>
+        </div>
       )}
     </div>
   );
