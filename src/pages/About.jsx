@@ -11,8 +11,7 @@ const About = () => {
     <Card className="p-4 text-center bg-light">
       {" "}
       <Card.Title className="mb-4" style={{ fontSize: "24px" }}>
-        This website is a study companion web application by Tan Dexter and Joy
-        Liu.
+        This website is a study companion web application by Tan Dexter
       </Card.Title>
       <div className="mt-5 mt-auto mb-4">
         <h4>Acknowledgements and Technologies Used:</h4>

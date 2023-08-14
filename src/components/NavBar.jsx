@@ -22,7 +22,7 @@ const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>StudyPal</Navbar.Brand>
+        <Navbar.Brand>StudyBuddy</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -39,6 +39,11 @@ const NavBar = () => {
             {auth && (
               <Nav.Link as={Link} to="/">
                 Home
+              </Nav.Link>
+            )}
+            {auth && (
+              <Nav.Link as={Link} to="/papers">
+                Papers
               </Nav.Link>
             )}
             {auth && (
