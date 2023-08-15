@@ -9,8 +9,8 @@ import PasswordReset from "./pages/PasswordReset";
 import Register from "./pages/Register";
 import UpdatePassword from "./pages/UpdatePassword";
 import About from "./pages/About";
-import Papers from "./pages/Papers";
 import Notes from "./pages/Notes";
+import Papers from "./pages/Papers";
 
 const App = () => {
   return (
