@@ -9,8 +9,8 @@ import PasswordReset from "./pages/PasswordReset";
 import Register from "./pages/Register";
 import UpdatePassword from "./pages/UpdatePassword";
 import About from "./pages/About";
-import ReactGA from "react-ga4";
-import Papers from "./pages/papers";
+import Papers from "./pages/Papers";
+import Notes from "./pages/Notes";
 
 const App = () => {
   return (
@@ -26,6 +26,7 @@ const App = () => {
             <Route element={<AuthRoute />}>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
+              <Route path="/notes" element={<Notes />} />
               <Route path="/papers" element={<Papers />} />
               <Route path="/about" element={<About />} />
             </Route>

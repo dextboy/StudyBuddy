@@ -42,6 +42,11 @@ const NavBar = () => {
               </Nav.Link>
             )}
             {auth && (
+              <Nav.Link as={Link} to="/notes">
+                Notes
+              </Nav.Link>
+            )}
+            {auth && (
               <Nav.Link as={Link} to="/papers">
                 Papers
               </Nav.Link>
