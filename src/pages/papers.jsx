@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Papers() {
@@ -126,19 +126,52 @@ export default function Papers() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(120); // Initial time in seconds
+  const [timerRunning, setTimerRunning] = useState(true);
+
+  useEffect(() => {
+    if (timerRunning && timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    } else if (timerRunning && timeLeft === 0) {
+      // Time's up, move to the next question or show score
+      handleNextQuestion();
+    }
+  }, [timerRunning, timeLeft]);
 
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
+    // Pause the timer when an answer is selected
+    setTimerRunning(false);
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
+      // Reset the timer for the next question
+      setTimeLeft(120); // Reset timer to initial time
+      setTimerRunning(true); // Start the timer again
     } else {
       setShowScore(true);
     }
   };
+
+  const handleNextQuestion = () => {
+    setTimerRunning(false);
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+      setTimeLeft(120);
+      setTimerRunning(true);
+    } else {
+      setShowScore(true);
+    }
+  };
+
   return (
     <div className="container">
       {showScore ? (
@@ -159,6 +192,7 @@ export default function Papers() {
             <div className="question-text my-4">
               {questions[currentQuestion].questionText}
             </div>
+            <div className="timer">Time left: {timeLeft} seconds</div>
           </div>
           <div className="answer-section">
             {questions[currentQuestion].answerOptions.map(
