@@ -9,13 +9,9 @@ export default function Notes() {
         <Card.Body className="w-100">
           <h2 className="text-center">Please select type of notes:</h2>
           <Row className="justify-content-center">
-            <Button className="w-50 text-center" onClick="handleOnClick">
-              Pages
-            </Button>
+            <Button className="w-50 text-center">Pages</Button>
 
-            <Button className="w-50 text-center" onClick="handleOnClick">
-              Flashcards
-            </Button>
+            <Button className="w-50 text-center">Flashcards</Button>
           </Row>
         </Card.Body>
       </Card>
