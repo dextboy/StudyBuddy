@@ -10,6 +10,7 @@ import Register from "./pages/Register";
 import UpdatePassword from "./pages/UpdatePassword";
 import About from "./pages/About";
 import Notes from "./pages/Notes";
+import Papers from "./pages/Papers";
 
 const App = () => {
   return (
