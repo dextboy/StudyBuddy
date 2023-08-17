@@ -12,7 +12,7 @@ const signOut = () => supabase.auth.signOut();
 
 const passwordReset = (email) =>
   supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: "https://orbital-studypal.netlify.app/update-password",
+    redirectTo: "https://studybuddie.netlify.app/update-password",
   });
 
 const updatePassword = (updatedPassword) =>
