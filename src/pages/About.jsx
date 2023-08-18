@@ -50,7 +50,7 @@ const About = () => {
         </div>
       </div>
       <Button
-        href="mailto:tandexter98@gmail.com?subject=Issue(s)%20with%20StudyPal"
+        href="mailto:tandexter98@gmail.com?subject=Issue(s)%20with%20StudyBuddie"
         variant="primary"
         className="mb-5"
       >
